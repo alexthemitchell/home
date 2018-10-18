@@ -4,13 +4,13 @@
   vars:
     vundle_repo_url: https://github.com/VundleVim/Vundle.vim.git
   tasks:
-  - name: Update Base System
+  - name: Updating Base System
     apt:
       upgrade: dist
       update_cache: yes
       autoclean: yes
       autoremove: yes
-  - name: Install Core Packages via apt
+  - name: Installing Core Packages
     apt:
       name: "{{ packages }}"
     vars:
@@ -26,10 +26,10 @@
         - neovim
         - wget
 
-  - name: Install Vundle
+  - name: Installing Vundle
     git:
       repo: "{{ vundle_repo_url }}"
-      dest: "~/.nvim/bundle/Vundle.vim"
+      dest: "~/.vim/bundle/Vundle.vim"
 
-  - name: Install vim Plugins
-    shell: "vim +BundleInstall +qall -S ~/.vimrc"
+  - name: Installing NeoVim Plugins
+    shell: "vim +BundleInstall +qall"

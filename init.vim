@@ -1,27 +1,25 @@
+" basic vim settings
 set number
+set mouse=a
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
-" A color scheme
-Plugin 'sjl/badwolf'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
 Plugin 'mxw/vim-jsx'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'othree/html5.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'sjl/badwolf'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-markdown'
@@ -41,4 +39,7 @@ set updatetime=500
 
 " Large file consideration
 let g:gitgutter_max_signs=10000
+
+" colorscheme
+colorscheme badwolf
 
