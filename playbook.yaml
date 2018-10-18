@@ -46,6 +46,7 @@
           dest: "{{ install_script_path }}"
       - name: Run Rustup Install Script
         shell: "sh {{ install_script_path }} -y --default-toolchain nightly"
+    always:
       - name: Remove Rustup Install Script
         file:
           path: "{{ install_script_path }}"
