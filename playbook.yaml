@@ -3,6 +3,7 @@
 - hosts: localhost
   vars:
     vundle_repo_url: https://github.com/VundleVim/Vundle.vim.git
+    rustup_install_script_url: https://sh.rustup.rs
   tasks:
   - name: Updating Base System
     apt:
@@ -33,3 +34,19 @@
 
   - name: Installing NeoVim Plugins
     shell: "vim +BundleInstall +qall"
+
+  - name: Install Rust Toolchain
+    vars:
+      working_dir: "/tmp"
+      install_script_path: "{{ working_dir }}/rustup.sh"
+    block:
+      - name: Download Rustup Install Script
+        get_url:
+          url:   "{{ rustup_install_script_url }}"
+          dest: "{{ install_script_path }}"
+      - name: Run Rustup Install Script
+        shell: "sh {{ install_script_path }} -y --default-toolchain nightly"
+      - name: Remove Rustup Install Script
+        file:
+          path: "{{ install_script_path }}"
+          state: absent

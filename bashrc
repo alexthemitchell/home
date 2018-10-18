@@ -1,3 +1,4 @@
+source $HOME/.cargo/env
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -59,3 +60,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export USER="Alex Mitchell"
