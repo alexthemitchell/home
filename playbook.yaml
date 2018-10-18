@@ -1,0 +1,35 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: localhost
+  vars:
+    vundle_repo_url: https://github.com/VundleVim/Vundle.vim.git
+  tasks:
+  - name: Update Base System
+    apt:
+      upgrade: dist
+      update_cache: yes
+      autoclean: yes
+      autoremove: yes
+  - name: Install Core Packages via apt
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+        - curl
+        - gcc
+        - git
+        - htop
+        - man
+        - nmap
+        - screenfetch
+        - ssh
+        - neovim
+        - wget
+
+  - name: Install Vundle
+    git:
+      repo: "{{ vundle_repo_url }}"
+      dest: "~/.nvim/bundle/Vundle.vim"
+
+  - name: Install vim Plugins
+    shell: "vim +BundleInstall +qall -S ~/.vimrc"
