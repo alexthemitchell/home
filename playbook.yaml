@@ -16,16 +16,37 @@
       name: "{{ packages }}"
     vars:
       packages:
-        - curl
+        - ack # better grep
+        - aria2 # wget but faster
+        - birthday # track birthdays
+        - calcurse # curses calendar
+        - cmus # terminal audio player
+        - curl # do you really need anything else?
         - gcc
         - git
         - htop
+        - jq # json sed
+        - lftp # ftp client
+        - locate # find file by regex
         - man
-        - nmap
-        - screenfetch
-        - ssh
-        - neovim
-        - wget
+        - mtr # network troubleshooting
+        - mutt # email in terminal
+        - mycli # mysql client with autocomplete
+        - neovim # Refactored rewrite of vim
+        - newsbeuter # terminal rss reader
+        - nmap # network probe tool
+        - peco # interactive recursive grep
+        - pgcli # postgres client with autocomplete
+        - pydf # disk usage visualizer
+        - qalc # bc but good
+        - rsync # resumeable file transfers over network
+        - screenfetch # Prints system info to screen
+        - ssh # telnet++
+        - tpp # terminal powerpoint presentor
+        - tmux # terminal multiplexing
+        - tig # terminal git graph explorer
+        - tree # visualize filesystem recursively
+        - weechat # IRC
 
   - name: Installing Vundle
     git:

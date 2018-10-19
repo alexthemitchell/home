@@ -6,4 +6,4 @@ container:
 	docker build -t $(CONTAINER_NAME) .
 
 run:
-	docker run -it $(CONTAINER_NAME) /bin/bash
+	docker run --privileged=true -it $(CONTAINER_NAME) /bin/bash
